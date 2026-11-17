@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Art History Academy is an open learning platform for art foundations, global art history, visual analysis, and museum collections.">
+<title>Art History Academy | Learn to See Art</title>
+<style>
+:root{--navy:#172f45;--navy2:#244a67;--gold:#c7a66a;--ink:#263744;--muted:#647482;--paper:#f5f4f0;--white:#fff;--line:#dce2e6;--soft:#edf2f5;--green:#46765f;--red:#9d4a40}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.62 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit}a{color:#285d80}a:hover{text-decoration-thickness:2px}
+header{background:var(--navy);color:#fff;padding:28px max(20px,calc((100% - 1200px)/2)) 32px}
+.brand{display:flex;align-items:center;gap:12px}.mark{width:42px;height:42px;border:1px solid #d7bd87;color:#e2ca94;border-radius:50%;display:grid;place-items:center;font:24px Georgia}
+.eyebrow{color:#e0c68e;text-transform:uppercase;letter-spacing:.15em;font-size:.72rem;font-weight:750}
+header h1{font:500 clamp(2.15rem,5vw,3.65rem)/1.08 Georgia,serif;margin:14px 0 8px;max-width:850px}
+header p{max-width:780px;color:#e0e8ee;margin:0;font-size:1.05rem}
+.header-meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.header-meta span{border:1px solid #597084;border-radius:99px;padding:4px 10px;font-size:.78rem;color:#edf2f5}
+.layout{max-width:1200px;margin:24px auto;padding:0 18px;display:grid;grid-template-columns:250px minmax(0,1fr);gap:22px}
+aside{background:#fff;border:1px solid var(--line);border-radius:15px;padding:13px;height:max-content;position:sticky;top:12px}
+.aside-title{padding:8px 10px 12px;color:var(--navy);font-weight:800;font-size:.8rem;letter-spacing:.08em}
+nav button{display:flex;align-items:center;gap:10px;width:100%;border:0;background:transparent;color:var(--ink);text-align:left;padding:10px;border-radius:8px;cursor:pointer}
+nav button:hover,nav button.active{background:var(--soft);color:var(--navy);font-weight:700}
+nav button .ico{width:22px;text-align:center;color:#58758b}
+.aside-note{border-top:1px solid var(--line);margin-top:10px;padding:12px 10px 4px;color:var(--muted);font-size:.78rem}
+main{min-width:0}.panel{background:#fff;border:1px solid var(--line);border-radius:15px;padding:clamp(18px,3vw,32px);min-height:620px}
+h2,h3,h4{font-family:Georgia,serif;color:var(--navy);line-height:1.22}h2{font-size:clamp(1.8rem,3vw,2.4rem);margin:4px 0 9px}h3{font-size:1.35rem;margin:1.2rem 0 .45rem}h4{font-size:1.08rem;margin:.5rem 0}
+p{margin:.55rem 0}.lead{font-size:1.07rem;color:var(--muted);max-width:850px}
+.tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.11em;color:#426984;font-weight:800}.pill{display:inline-block;border-radius:99px;padding:4px 10px;background:var(--soft);color:#315b78;font-size:.78rem;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:13px;margin:17px 0}
+.card{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}.card h3{margin:3px 0 6px}.card p{color:var(--muted);font-size:.94rem}
+.card .card-link{display:inline-block;margin-top:7px;font-weight:700;font-size:.88rem}
+.definition{border-left:4px solid var(--gold);background:#faf8f2;padding:13px 16px;margin:15px 0;border-radius:0 8px 8px 0}
+.callout{background:var(--soft);border-radius:11px;padding:15px;margin:15px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--navy);color:#fff;border:0;border-radius:8px;padding:10px 15px;cursor:pointer;text-decoration:none;font-weight:650}
+.btn:hover{background:var(--navy2);color:white}.btn.secondary{background:white;color:var(--navy);border:1px solid var(--line)}.btn.gold{background:#8a6b37}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}
+input[type=text],input[type=search],select,textarea{width:100%;border:1px solid #cbd5dc;border-radius:8px;padding:10px 12px;background:#fff;color:var(--ink)}
+textarea{min-height:110px;resize:vertical}
+label{font-weight:650;font-size:.91rem;display:block;margin:8px 0 5px}
+.visual{border:1px solid var(--line);border-radius:12px;padding:17px;background:linear-gradient(135deg,#edf1f2,#f8f5ec);margin:15px 0}
+.swatches{display:flex;gap:8px;flex-wrap:wrap}.swatch{width:42px;height:42px;border-radius:8px;border:1px solid #0002}
+.progress{height:9px;background:#e6eaed;border-radius:99px;overflow:hidden}.progress span{height:100%;display:block;background:#54836c;width:0}
+.small{font-size:.82rem;color:var(--muted)}.muted{color:var(--muted)}.two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.lesson-row{display:flex;gap:12px;align-items:flex-start}.num{background:var(--soft);color:var(--navy);border-radius:50%;width:32px;height:32px;flex:0 0 32px;display:grid;place-items:center;font-weight:800}
+.artwork-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:16px}
+.artwork{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:white}
+.artwork img{width:100%;height:180px;object-fit:contain;background:#f1f2f0;display:block}
+.artwork .body{padding:12px}.artwork h3{font-size:1.1rem;margin:0 0 5px}.artwork p{font-size:.86rem;color:var(--muted);margin:3px 0}
+.question{border:1px solid var(--line);padding:15px;border-radius:11px;margin:13px 0}
+.option{display:flex;gap:9px;align-items:flex-start;background:#f7f9fa;padding:9px 10px;border-radius:7px;margin:7px 0;cursor:pointer;font-weight:400}
+.feedback{padding:11px 13px;border-radius:8px;background:var(--soft);margin-top:10px}
+.timeline{border-left:2px solid #c6d2dc;margin:18px 0 18px 11px;padding-left:21px}
+.era{position:relative;padding:0 0 17px}.era:before{content:"";position:absolute;left:-28px;top:5px;width:11px;height:11px;background:var(--gold);border:2px solid white;border-radius:50%;box-shadow:0 0 0 1px #b7a071}
+footer{max-width:1200px;margin:0 auto;padding:10px 20px 34px;color:var(--muted);font-size:.82rem}
+@media(max-width:800px){.layout{grid-template-columns:1fr}aside{position:static}nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))} .aside-title,.aside-note{grid-column:1/-1}.two-col{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand"><div class="mark">A</div><div><div class="eyebrow">An open learning experience</div><div style="font:18px Georgia,serif">ART HISTORY ACADEMY</div></div></div>
+ <h1>Learn to see. Learn to think. Discover art.</h1>
+ <p>A college-level introduction to the visual language, histories, cultures, and ideas that shape art across the world.</p>
+ <div class="header-meta"><span>Open learning</span><span>Global perspectives</span><span>Visual analysis</span><span>Self-paced study</span></div>
+</header>
+<div class="layout">
+<aside>
+ <div class="aside-title">LEARNING NAVIGATION</div>
+ <nav id="nav">
+ <button class="active" data-page="home"><span class="ico">⌂</span>Home & progress</button>
+ <button data-page="foundations"><span class="ico">◈</span>Art foundations</button>
+ <button data-page="elements"><span class="ico">✳</span>Seven elements</button>
+ <button data-page="principles"><span class="ico">▦</span>Design principles</button>
+ <button data-page="history"><span class="ico">⌛</span>Global art history</button>
+ <button data-page="library"><span class="ico">▧</span>Artwork explorer</button>
+ <button data-page="analysis"><span class="ico">◎</span>Analysis studio</button>
+ <button data-page="assessment"><span class="ico">✓</span>Assessment center</button>
+ <button data-page="educators"><span class="ico">▤</span>Educator resources</button>
+ <button data-page="glossary"><span class="ico">A–Z</span>Glossary & sources</button>
+ </nav>
+ <div class="aside-note">Your lesson completion is saved in this browser on this device. This prototype does not create a cloud account.</div>
+</aside>
+<main><section class="panel" id="content" aria-live="polite"></section></main>
+</div>
+<footer>Art History Academy · Version 2.0 development prototype. Educational content is introductory and should be supplemented with assigned readings, museum records, and scholarly sources. Artwork images are served by participating museum APIs where available; each record links to its source and identifies rights information when supplied.</footer>
+<script>
+const $=s=>document.querySelector(s);
+const saved=()=>{try{return JSON.parse(localStorage.getItem('aha_progress')||'[]')}catch(e){return[]}};
+let completed=saved();
+function mark(id){if(!completed.includes(id))completed.push(id);localStorage.setItem('aha_progress',JSON.stringify(completed));render('home')}
+const elements=[
+['Line','A mark or path made by a moving point. Lines may be actual or implied; straight, curved, angular, thick, thin, continuous, or broken.','Artists use line to define edges, direct the viewer’s eye, create movement, suggest energy, and convey emotion.','Examine direction, weight, quality, density, and expressive character. Where does your eye travel?'],
+['Shape','A two-dimensional enclosed area defined by boundaries, color, or value. Shapes may be geometric or organic.','Shape organizes silhouettes, patterns, symbols, and figure-ground relationships.','Identify geometric and organic shapes. Notice positive shapes and the negative spaces around them.'],
+['Form','A three-dimensional object, or the illusion of three-dimensional volume in a two-dimensional work.','Form gives objects mass and volume. Artists suggest form through modeling, perspective, overlap, and light and shadow.','Look for volume, mass, contour, highlights, shadows, and the way objects occupy space.'],
+['Color','An element of visual experience described through hue, value, and intensity (saturation).','Color can establish mood, create contrast, unify a composition, suggest depth, and carry cultural or symbolic associations.','Notice dominant hues, warm and cool relationships, complementary contrasts, saturation, and color symbolism in context.'],
+['Value','The relative lightness or darkness of a color or tone.','Value creates contrast, visual hierarchy, modeling, atmosphere, and the illusion of light and volume.','Find the lightest and darkest areas. Follow tonal transitions and how they guide attention.'],
+['Texture','The surface quality of an object, either physically present (actual texture) or visually suggested (implied texture).','Texture can invite touch, communicate material, create visual variety, and reinforce subject or mood.','Distinguish what the surface physically feels like from what the image makes it appear to feel like.'],
+['Space','The area within, around, between, above, below, or behind forms. In two-dimensional art, space may be shallow, ambiguous, or illusionistic.','Space organizes relationships, creates depth, establishes scale, and shapes positive and negative areas.','Look for overlap, placement, scale, linear or atmospheric perspective, horizon lines, and empty areas.']
+];
+const principles=[
+['Balance','The distribution of visual weight. Symmetrical balance uses similar elements on either side of an axis; asymmetrical balance uses different elements that still feel visually stable; radial balance organizes elements around a center.'],
+['Emphasis','The creation of a focal area that attracts attention. Contrast, isolation, placement, scale, detail, and color can establish emphasis.'],
+['Movement','The path the viewer’s eye follows through a composition. Directional lines, repetition, gestures, and placement can guide looking.'],
+['Pattern','The repetition of a visual element or motif in a recognizable arrangement. Pattern may be regular, alternating, flowing, or irregular.'],
+['Rhythm','A sense of visual beat or flow created through repetition, alternation, progression, or variation.'],
+['Proportion and scale','Proportion concerns size relationships among parts; scale concerns size in relation to a standard, viewer, or surrounding objects. Artists may use distortion deliberately.'],
+['Unity and variety','Unity creates a sense of coherence; variety introduces differences that maintain interest. Strong compositions often balance both.'],
+['Contrast','A marked difference between visual qualities, such as light and dark, rough and smooth, large and small, or warm and cool.']
+];
+const eras=[
+['Prehistoric and ancient worlds','From Paleolithic cave imagery and monumental architecture to the visual cultures of Mesopotamia, Egypt, Nubia, Greece, Rome, and the ancient Americas. Consider ritual, power, memory, trade, and civic life.'],
+['Africa and its diverse artistic traditions','Explore distinct regional and historical traditions across the continent, including sculpture, textiles, architecture, metalwork, masquerade, and contemporary practices. Avoid treating Africa as a single culture or style.'],
+['South, East, and Southeast Asia','Study the visual traditions of India, China, Japan, Korea, and Southeast Asia, including Buddhist, Hindu, Jain, Islamic, courtly, landscape, and modern art.'],
+['Islamic art and the Middle East','Explore architecture, calligraphy, geometric and vegetal ornament, ceramics, textiles, manuscripts, and the diversity of artistic production across regions and periods.'],
+['Medieval and early modern worlds','Examine Byzantine, Romanesque, Gothic, Indigenous American, and other overlapping traditions; then explore Renaissance and Baroque developments in their local contexts.'],
+['The Americas and Oceania','Study Indigenous visual cultures of North, Central, and South America and the Pacific, including architecture, textiles, ceremonial objects, sculpture, and living cultural practices.'],
+['Eighteenth and nineteenth centuries','Explore Neoclassicism, Romanticism, Realism, photography, Impressionism, Post-Impressionism, and the effects of industrialization, colonialism, and modernity.'],
+['Modern and contemporary art','Study global modernisms, abstraction, Cubism, Dada, Surrealism, social practice, conceptual art, installation, performance, digital media, and contemporary Indigenous and diasporic practices.']
+];
+const stages=[
+['Observation','What can you see? Record visible facts before making claims about meaning.','I notice a village, a church steeple, mountains, a large dark cypress, stars, and a swirling sky.'],
+['Description','Describe subject, medium, composition, and relationships among visible parts. Avoid interpretation for now.','The landscape is organized around a village in the lower portion, distant mountains, and an expansive sky filled with curved forms and luminous circles.'],
+['Formal analysis','Explain how elements and principles work together. Use precise visual evidence.','Repeated curved strokes create rhythm and movement. Contrasts between luminous yellows and deep blues establish emphasis and a dramatic atmosphere.'],
+['Interpretation','Propose a meaning or experience. Support it with visual evidence and relevant context; acknowledge that interpretations can differ.','The expressive treatment of the sky may suggest emotional intensity or a heightened experience of the natural world. This is an interpretation, not a visible fact.'],
+['Evaluation','Make a reasoned judgment about the work’s effectiveness, significance, or impact. State the criteria behind your judgment.','The composition is compelling because repeated directional strokes unify the sky while contrasts in scale and value guide attention across the landscape.']
+];
+const glossary=[
+['Abstract art','Art that transforms, simplifies, distorts, or reorganizes recognizable forms.'],['Actual texture','A physical surface quality that can be experienced through touch.'],['Composition','The arrangement of visual elements within an artwork.'],['Content','Ideas, meanings, or messages communicated or suggested by an artwork.'],['Context','Historical, cultural, social, political, religious, or personal circumstances surrounding a work.'],['Form','The physical or visual organization of an artwork; also the three-dimensional quality of an object.'],['Medium','The material or materials used to create an artwork.'],['Motif','A recurring visual element, image, or theme.'],['Negative space','Unoccupied areas around and between forms.'],['Nonrepresentational art','Art that does not depict recognizable people, places, or objects.'],['Positive space','Areas occupied by forms or objects.'],['Representational art','Art that depicts recognizable subjects.'],['Saturation / intensity','The relative purity or vividness of a color.'],['Subject matter','What is depicted or represented in an artwork.'],['Technique','Methods or processes used to make an artwork.']
+];
+function home(){return `<span class="pill">WELCOME · OPEN LEARNING</span><h2>Discover the language of art.</h2><p class="lead">Art History Academy helps learners build visual literacy, explore global art histories, and develop thoughtful, evidence-based interpretations of works of art.</p>
+<div class="callout"><b>Start with a question:</b> What do you see? How has the artist organized it? What might it mean in its historical and cultural context?</div>
+<div class="grid">
+${[['Art foundations','Understand subject matter, form, content, context, and function.','foundations','01'],['Seven elements','Learn the visual building blocks of art.','elements','02'],['Design principles','Explore how artists organize visual compositions.','principles','03'],['Global art history','Encounter artistic traditions across time and place.','history','04'],['Artwork explorer','Search participating museum collections.','library','05'],['Analysis studio','Practice a five-stage method of visual analysis.','analysis','06']].map(x=>`<article class="card"><div class="tag">PATHWAY ${x[3]}</div><h3>${x[0]}</h3><p>${x[1]}</p><a class="card-link" href="#" onclick="render('${x[2]}');return false">Explore pathway →</a></article>`).join('')}
+</div><h3>Your learning progress</h3><div class="small">${completed.length} of 6 core learning areas marked complete</div><div class="progress"><span style="width:${Math.min(100,completed.length/6*100)}%"></span></div><p class="small">Progress is stored locally in this browser. It is not synced across devices or accounts.</p>
+<h3>Learning outcomes</h3><ul><li>Distinguish subject matter, form, content, context, and function.</li><li>Identify and explain the seven elements of art.</li><li>Analyze how principles of design organize a composition.</li><li>Use visual evidence and historical context to support interpretation.</li><li>Develop clear, evidence-based evaluations of artworks.</li></ul>`}
+function foundations(){return `<span class="pill">MODULE 01</span><h2>Art foundations</h2><p class="lead">Art is a form of human expression and communication. It can embody beliefs, record events, shape identity, explore perception, serve practical purposes, or invite reflection.</p>
+<div class="grid"><article class="card"><h3>Subject matter</h3><p>What is represented? A portrait, landscape, historical event, abstract arrangement, religious figure, or everyday object?</p></article><article class="card"><h3>Form</h3><p>How is the work made and organized? Consider medium, materials, technique, scale, composition, and visual structure.</p></article><article class="card"><h3>Content</h3><p>What ideas, meanings, associations, or messages does the work communicate or invite viewers to construct?</p></article></div>
+<h3>Context and function</h3><p>Context includes the historical, cultural, social, political, religious, and personal circumstances surrounding an artwork. Function asks what a work was made to do or how it was used. A work may have multiple functions, and those functions can change over time.</p>
+<h3>Modes of representation</h3><ul><li><b>Representational:</b> depicts recognizable subjects, though not necessarily realistically.</li><li><b>Abstract:</b> transforms, simplifies, distorts, or reorganizes recognizable forms.</li><li><b>Nonrepresentational:</b> does not depict recognizable people, places, or objects.</li></ul>
+<div class="definition"><b>Example:</b> A portrait may have a recognizable subject, use oil paint and careful modeling, and communicate status, identity, or memory. Its original commission and display setting contribute to its context and function.</div>
+<h3>Reflection</h3><label for="foundationNote">Explain the difference between subject matter and content.</label><textarea id="foundationNote" placeholder="Write your response..."></textarea><div class="actions"><button class="btn" onclick="mark('foundations')">Mark module complete</button></div>`}
+function elementPage(){return `<span class="pill">MODULE 02</span><h2>The seven elements of art</h2><p class="lead">The elements are the basic visual components artists manipulate. They interact to produce the whole experience of a work.</p>${elements.map((e,i)=>`<article class="card" style="margin:12px 0"><div class="tag">ELEMENT ${i+1}</div><h3>${e[0]}</h3><p><b>Definition:</b> ${e[1]}</p><p><b>Why it matters:</b> ${e[2]}</p><p><b>How to analyze it:</b> ${e[3]}</p></article>`).join('')}
+<div class="visual"><b>Color vocabulary</b><p>Hue names a color family; value describes lightness or darkness; intensity describes brightness or dullness.</p><div class="swatches">${['#c0392b','#e67e22','#f1c40f','#2e8b57','#2874a6','#7040a0','#222','#eee'].map(c=>`<span class="swatch" style="background:${c}"></span>`).join('')}</div></div><button class="btn" onclick="mark('elements')">Mark module complete</button>`}
+function principlePage(){return `<span class="pill">MODULE 03</span><h2>Principles of design</h2><p class="lead">Principles describe ways visual elements are organized. They help explain why a composition feels balanced, dynamic, unified, tense, calm, or visually complex.</p>${principles.map((p,i)=>`<article class="card" style="margin:12px 0"><div class="tag">PRINCIPLE ${i+1}</div><h3>${p[0]}</h3><p>${p[1]}</p><p class="small"><b>Analysis prompt:</b> Identify specific areas of an artwork that demonstrate this principle. Explain the visual effect rather than simply naming it.</p></article>`).join('')}<div class="definition"><b>Remember:</b> Elements are the visual ingredients; principles describe how those ingredients are arranged and how that arrangement affects the viewer.</div><button class="btn" onclick="mark('principles')">Mark module complete</button>`}
+function historyPage(){return `<span class="pill">MODULE 04</span><h2>Global art history</h2><p class="lead">Art history is not one universal sequence. Artistic traditions develop through exchange, migration, conflict, innovation, belief, and local histories. These broad pathways are starting points, not a single timeline that every culture follows.</p><div class="timeline">${eras.map((e,i)=>`<div class="era"><div class="tag">STUDY AREA ${String(i+1).padStart(2,'0')}</div><h3>${e[0]}</h3><p>${e[1]}</p></div>`).join('')}</div><div class="definition">A global approach avoids presenting Europe as the default center of art history. Compare works across regions while attending to their distinct cultural and historical contexts.</div><button class="btn" onclick="mark('history')">Mark module complete</button>`}
+function analysisPage(){return `<span class="pill">MODULE 06</span><h2>Analysis studio</h2><p class="lead">Move from careful looking to an evidence-based interpretation. The stages build on one another, but analysis is recursive: you may return to observation as new questions arise.</p><article class="card"><div class="tag">GUIDED STUDY WORK</div><h3>Vincent van Gogh, <i>The Starry Night</i>, 1889</h3><p>Oil on canvas. Museum of Modern Art, New York.</p><a href="https://www.moma.org/collection/works/79802" target="_blank" rel="noopener">View the museum collection record ↗</a></article>
+${stages.map((s,i)=>`<article class="card" style="margin:12px 0"><div class="tag">STEP ${i+1}</div><h3>${s[0]}</h3><p>${s[1]}</p><div class="definition"><b>Model response:</b> ${s[2]}</div><label for="analysis${i}">Your response</label><textarea id="analysis${i}" placeholder="Use specific visual evidence..."></textarea></article>`).join('')}
+<div class="actions"><button class="btn" onclick="saveAnalysis()">Save analysis on this device</button><button class="btn secondary" onclick="mark('analysis')">Mark lesson complete</button></div><p id="saveMessage" class="small"></p>`}
+function assessmentPage(){return `<span class="pill">MODULE 07</span><h2>Assessment center</h2><p class="lead">Check your understanding of foundational art vocabulary and visual analysis. This short review is formative practice, not a graded college examination.</p><form id="quiz">
+${[
+['Which term refers to what is represented in an artwork?',['Medium','Subject matter','Context','Technique'],1,'Subject matter identifies what is depicted or represented.'],
+['Which element describes the lightness or darkness of a color or tone?',['Texture','Shape','Value','Space'],2,'Value describes relative lightness and darkness.'],
+['Which principle concerns the distribution of visual weight?',['Emphasis','Balance','Pattern','Movement'],1,'Balance describes how visual weight is distributed in a composition.'],
+['What is the difference between actual and implied texture?',['They mean the same thing.','Actual texture can be physically felt; implied texture is visually suggested.','Implied texture is always rough.','Actual texture only appears in sculpture.'],1,'Actual texture is physical; implied texture is visually suggested.'],
+['Which stage develops a supported explanation of possible meaning?',['Observation','Description','Interpretation','Inventory'],2,'Interpretation proposes meaning and supports it with visual evidence and context.'],
+['Which statement best describes the relationship between elements and principles?',['They are interchangeable terms.','Elements are visual components; principles describe their organization.','Principles are materials used by artists.','Elements refer only to color and line.'],1,'Elements are the visual components; principles describe how they are organized.']
+].map((q,i)=>`<div class="question"><b>${i+1}. ${q[0]}</b>${q[1].map((a,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}"> ${a}</label>`).join('')}<div id="feedback${i}" class="feedback" hidden></div></div>`).join('')}
+<button class="btn" type="submit">Submit answers</button></form><div id="quizScore" class="callout" hidden></div>`}
+function educators(){return `<span class="pill">EDUCATOR CENTER</span><h2>Teaching and learning resources</h2><p class="lead">A developing resource area for instructors, teaching assistants, and independent learners.</p><div class="grid">
+<article class="card"><h3>Lesson planning framework</h3><p>For each lesson, identify learning outcomes, key vocabulary, a visual example, a guided activity, and a short formative assessment.</p></article>
+<article class="card"><h3>Visual analysis activity</h3><p>Ask learners to describe visible evidence before interpreting meaning. Require students to point to specific formal choices that support their claims.</p></article>
+<article class="card"><h3>Comparative looking</h3><p>Compare two works by medium, function, context, composition, and visual strategy. Avoid treating stylistic difference as a measure of cultural value.</p></article>
+<article class="card"><h3>Assessment rubric</h3><p>Suggested criteria: accuracy of observation, use of vocabulary, formal evidence, contextual understanding, and clarity of reasoning.</p></article>
+</div><h3>Sample assignment: Compare and interpret</h3><p>Select two artworks from different periods or cultural contexts. Write a 500–700 word comparison that identifies subject matter, analyzes at least three visual elements and two design principles, incorporates reliable contextual research, and supports an interpretation with visual evidence.</p><h3>Suggested rubric (20 points)</h3><ul><li>Observation and description: 4 points</li><li>Formal analysis and vocabulary: 5 points</li><li>Historical and cultural context: 4 points</li><li>Interpretation supported by evidence: 5 points</li><li>Organization and source documentation: 2 points</li></ul><p class="small">These are sample teaching materials, not a validated institutional assessment instrument.</p>`}
+function glossaryPage(){return `<span class="pill">REFERENCE DESK</span><h2>Glossary and research sources</h2><p class="lead">Use this vocabulary as a starting point. For academic work, consult scholarly books, peer-reviewed research, museum catalogues, and primary sources.</p><input id="glossSearch" type="search" placeholder="Search a term..." oninput="filterGlossary(this.value)"><div id="glossaryList">${glossary.map(g=>`<article class="card gloss" style="margin:9px 0"><h3>${g[0]}</h3><p>${g[1]}</p></article>`).join('')}</div><h3>Open museum collections and research resources</h3><ul><li><a href="https://www.metmuseum.org/art/collection" target="_blank" rel="noopener">The Metropolitan Museum of Art collection</a></li><li><a href="https://www.artic.edu/collection" target="_blank" rel="noopener">Art Institute of Chicago collection</a></li><li><a href="https://www.clevelandart.org/art/collection" target="_blank" rel="noopener">Cleveland Museum of Art collection</a></li><li><a href="https://www.nga.gov/open-access-policy.html" target="_blank" rel="noopener">National Gallery of Art open access policy</a></li></ul><div class="definition">Image availability and reuse rights differ by object and institution. Always check the individual record, license, attribution requirements, and any restrictions before republishing an image.</div>`}
+function libraryPage(){return `<span class="pill">MODULE 05 · COLLECTIONS</span><h2>Artwork explorer</h2><p class="lead">Search selected museum collections for artwork records and images. Results are retrieved directly from museum services when available.</p><div class="two-col"><div><label for="museum">Collection</label><select id="museum"><option value="met">The Metropolitan Museum of Art</option><option value="cleveland">Cleveland Museum of Art</option><option value="aic">Art Institute of Chicago</option></select></div><div><label for="artSearch">Search by artist, title, subject, or keyword</label><input id="artSearch" type="search" placeholder="e.g. Monet, portrait, sculpture"></div></div><div class="actions"><button class="btn" onclick="searchArt()">Search collection</button><button class="btn secondary" onclick="presetSearch('Impressionism')">Try Impressionism</button></div><p id="artStatus" class="small">Choose a collection and enter a search term. Some institutions may limit requests or availability.</p><div id="artResults" class="artwork-grid"></div><p class="small">Museum search is an experimental feature in this prototype. Image and metadata availability varies. The museum's own object page is the authoritative source.</p>`}
+async function searchArt(){const museum=$('#museum').value,q=$('#artSearch').value.trim();if(!q){$('#artStatus').textContent='Enter a search term first.';return}$('#artStatus').textContent='Searching museum collection…';$('#artResults').innerHTML='';
+try{let items=[];
+if(museum==='met'){const u='https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&q='+encodeURIComponent(q)+'&limit=12';const r=await fetch(u);if(!r.ok)throw Error('Museum service returned '+r.status);const data=await r.json();const ids=(data.objectIDs||[]).slice(0,8);items=await Promise.all(ids.map(async id=>{const x=await fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects/'+id);return x.ok?x.json():null}));items=items.filter(x=>x&&x.primaryImageSmall).map(x=>({title:x.title,artist:x.artistDisplayName||'Artist not listed',date:x.objectDate||'Date not listed',medium:x.medium||'',image:x.primaryImageSmall,url:x.objectURL,credit:'The Metropolitan Museum of Art',rights:x.isPublicDomain?'Public-domain image (verify object record)':'Check object-level image rights'}));}
+if(museum==='cleveland'){const u='https://openaccess-api.clevelandart.org/api/artworks/?q='+encodeURIComponent(q)+'&limit=12';const r=await fetch(u);if(!r.ok)throw Error('Museum service returned '+r.status);const data=await r.json();items=(data.data||[]).filter(x=>x.images&&x.images.web).slice(0,12).map(x=>({title:x.title,artist:x.creators?.map(c=>c.description).join('; ')||'Artist not listed',date:x.creation_date||'Date not listed',medium:x.technique||'',image:x.images.web.url,url:x.url,credit:'Cleveland Museum of Art',rights:x.share_license_status||'Check object record'}));}
+if(museum==='aic'){const u='https://api.artic.edu/api/v1/artworks/search?q='+encodeURIComponent(q)+'&limit=12&fields=id,title,artist_display,date_display,medium_display,image_id,is_public_domain,artwork_type_title';const r=await fetch(u);if(!r.ok)throw Error('Museum service returned '+r.status);const data=await r.json();items=(data.data||[]).filter(x=>x.image_id).map(x=>({title:x.title,artist:x.artist_display||'Artist not listed',date:x.date_display||'Date not listed',medium:x.medium_display||'',image:'https://www.artic.edu/iiif/2/'+x.image_id+'/full/843,/0/default.jpg',url:'https://www.artic.edu/artworks/'+x.id,credit:'Art Institute of Chicago',rights:x.is_public_domain?'Public domain according to record':'Check object record'}));}
+if(!items.length){$('#artStatus').textContent='No image-bearing results were returned. Try a broader search term or another collection.';return}
+$('#artStatus').textContent=items.length+' artwork records found. Review each museum record for full details and rights.';
+$('#artResults').innerHTML=items.map(x=>`<article class="artwork"><img loading="lazy" src="${esc(x.image)}" alt="${esc(x.title)}"><div class="body"><h3>${esc(x.title||'Untitled')}</h3><p>${esc(x.artist)}</p><p>${esc(x.date)}${x.medium?' · '+esc(x.medium):''}</p><p><b>${esc(x.credit)}</b></p><p>${esc(x.rights)}</p><a href="${esc(x.url||'#')}" target="_blank" rel="noopener">Open museum record ↗</a></div></article>`).join('');
+}catch(e){$('#artStatus').textContent='The museum service could not be reached from this browser session. '+e.message+'. Check your connection or open the collection website directly.';}}
+function presetSearch(q){$('#artSearch').value=q;searchArt()}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function saveAnalysis(){const data=stages.map((s,i)=>({stage:s[0],response:$('#analysis'+i).value}));localStorage.setItem('aha_analysis',JSON.stringify(data));$('#saveMessage').textContent='Your analysis responses have been saved in this browser on this device.'}
+function filterGlossary(q){document.querySelectorAll('.gloss').forEach(el=>el.hidden=!el.textContent.toLowerCase().includes(q.toLowerCase()))}
+function render(page){document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));const f={home,foundations,elements:elementPage,principles:principlePage,history:historyPage,library:libraryPage,analysis:analysisPage,assessment:assessmentPage,educators,glossary:glossaryPage};$('#content').innerHTML=f[page]();window.scrollTo({top:0,behavior:'smooth'});if(page==='assessment')setupQuiz();if(page==='analysis')loadAnalysis()}
+function loadAnalysis(){try{const d=JSON.parse(localStorage.getItem('aha_analysis')||'[]');d.forEach((x,i)=>{const el=$('#analysis'+i);if(el)el.value=x.response||''})}catch(e){}}
+function setupQuiz(){$('#quiz').addEventListener('submit',e=>{e.preventDefault();const keys=[1,2,1,1,2,1],explain=['Subject matter identifies what is depicted or represented.','Value describes relative lightness and darkness.','Balance describes how visual weight is distributed.','Actual texture is physical; implied texture is visually suggested.','Interpretation proposes meaning supported by evidence and context.','Elements are visual components; principles describe their organization.'];let score=0;keys.forEach((k,i)=>{const selected=$(`input[name="q${i}"]:checked`);const box=$('#feedback'+i);box.hidden=false;if(selected&&Number(selected.value)===k){score++;box.textContent='Correct. '+explain[i]}else box.textContent='Review: '+explain[i]});$('#quizScore').hidden=false;$('#quizScore').innerHTML='<b>Score: '+score+' / '+keys.length+' ('+Math.round(score/keys.length*100)+'%)</b><br>'+(score===keys.length?'Excellent work.':'Review the explanations, revisit the lessons, and try again.');});}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>render(b.dataset.page)));
+render('home');
+</script>
+</body></html>
